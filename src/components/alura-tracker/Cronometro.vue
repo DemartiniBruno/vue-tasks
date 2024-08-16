@@ -22,3 +22,9 @@ export default defineComponent({
     },
 })
 </script>
+
+<style scoped>
+    strong{
+        color: var(--texto-primario)
+    }
+</style>

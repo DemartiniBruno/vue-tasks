@@ -1,4 +1,4 @@
 export default interface ITask {
-    task: string;
+    title: string;
     time: string;
   }

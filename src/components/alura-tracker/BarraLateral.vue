@@ -1,9 +1,12 @@
 <template>
     <header>
         <h1>
-            <!-- <img src="" alt=""> -->
-             teste
+             Titulo bonito
         </h1>
+        <button @click="qualomodo()" class="button">
+          <span v-if="modo">Claro</span>
+          <span v-else>Escuro</span>
+        </button>
     </header>
 </template>
 
@@ -11,7 +14,27 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name:'BarraLateral'
+    name:'BarraLateral',
+    data(){
+      return{
+        modo:true
+      }
+    },
+    methods:{
+      qualomodo(){
+        this.modo = !this.modo
+        this.$emit('modoDeCor', this.modo)
+      }
+    },
+    emits:[
+      'modoDeCor'
+    ]
+    // props:{
+    //   modo:{
+    //     type: Boolean,
+    //     default: false
+    //   }
+    // }
 })
 </script>
 

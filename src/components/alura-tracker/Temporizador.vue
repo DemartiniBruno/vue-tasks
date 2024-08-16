@@ -45,12 +45,11 @@ export default defineComponent({
         },
         finalizar(){
             clearInterval(this.cronometro)
-            const tempo = new Date(this.tempoEmSegundos*1000).toISOString().substr(11,8)
+            this.$emit('temporizadorEncerrado',this.tempoEmSegundos)
             this.cronometroRodando=false
             this.tempoEmSegundos=0
             this.cronometro=0
-            this.$emit('temporizadorEncerrado',tempo)
-            // return tempo
+
 
         }
     },

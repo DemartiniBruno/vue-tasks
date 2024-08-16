@@ -3,15 +3,6 @@
         <div class="columns">
             <div class="column is-8" role="form" aria-label="form para criação">
                 <input v-model="input" type="text" class="input" placeholder="Tarefa">
-
-                <div>
-                    <ul>
-                        <li v-for="task in tasks">
-                            <p>{{ task.title }}</p>
-                            <p>{{ task.time }}</p>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <div class="column">
                 <Temporizador @temporizadorEncerrado="finalizarTarefa($event)" />
@@ -29,27 +20,35 @@ export default defineComponent({
     name: 'Formulario',
     data() {
         return {
-            input:'',
-            tasks: [
-                {
-                    title: 'teste',
-                    time: '00:00:00'
-                },
-            ]
+            input: '',
         }
     },
     components: {
         Temporizador
     },
     methods: {
-        finalizarTarefa(e:string) {
-            this.tasks.push({
-                title:this.input,
-                time:e
+        finalizarTarefa(e: string) {
+            this.$emit('novaTarefa', {
+                title: this.input,
+                time: e
             })
-
-            this.input=''
+            this.input = ''
         }
-    }
+    },
+    emits: [
+        'novaTarefa'
+    ]
 })
 </script>
+
+<style scoped>
+div,
+input {
+    background-color: var(--bg-primario);
+    color: var(--texto-primario);
+}
+
+input::placeholder{
+    color: var(--texto-primario);;
+}
+</style>
