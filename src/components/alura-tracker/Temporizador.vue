@@ -7,6 +7,7 @@
             </span>
             <span>play</span>
         </button>
+        <!-- <button @click="$emit('temporizadorEncerrado',finalizar())" class="button" :disabled="!cronometroRodando"> -->
         <button @click="finalizar()" class="button" :disabled="!cronometroRodando">
             <span class="icon">
                 <i class="fas fa-stop"></i>
@@ -21,6 +22,7 @@ import { defineComponent } from 'vue';
 import Cronometro from './Cronometro.vue';
 
 export default defineComponent({
+
     name: 'Temporizador',
     components:{
         Cronometro
@@ -37,19 +39,19 @@ export default defineComponent({
             if(this.cronometro===0){
                 this.cronometro=setInterval(()=>{
                 this.tempoEmSegundos++
-            }, 1 * 1)
+            }, 1 * 100)
             }
             this.cronometroRodando=true
-            // console.log(this.cronometro)
         },
         finalizar(){
-            // console.log(new Date(this.tempoEmSegundos*1000).toISOString().substr(11,8))
             clearInterval(this.cronometro)
-            this.cronometro=0
-            this.tempoEmSegundos=0
+            const tempo = new Date(this.tempoEmSegundos*1000).toISOString().substr(11,8)
             this.cronometroRodando=false
+            this.tempoEmSegundos=0
+            this.cronometro=0
+            this.$emit('temporizadorEncerrado',tempo)
+            // return tempo
 
-            return new Date(this.tempoEmSegundos*1000).toISOString().substr(11,8)
         }
     },
     emits:[
