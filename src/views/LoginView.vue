@@ -1,5 +1,5 @@
 <script lang="ts">
-import InputDefault from '../components/InputDefault.vue'
+import InputDefault from '../components/old/InputDefault.vue'
 
 export default {
     components: { InputDefault },

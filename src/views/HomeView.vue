@@ -1,6 +1,6 @@
 <script lang="ts">
-import BotaoAdicionar from '../components/BotaoAdicionar.vue'
-import InputDefault from '../components/InputDefault.vue'
+import BotaoAdicionar from '../components/old/BotaoAdicionar.vue'
+import InputDefault from '../components/old/InputDefault.vue'
 export default {
   components: { BotaoAdicionar, InputDefault },
   name: 'homeView',
