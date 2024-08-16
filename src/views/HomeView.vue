@@ -27,12 +27,6 @@ export default {
           {{ task }}
         </li>
       </ul>
-      <!-- <p v-else>Não tem tasks</p> -->
-      <!-- 
-          adicionar card da task
-        -->
-      <!-- <p>teste</p> -->
-
 
     </section>
     <div class="btn">
@@ -46,14 +40,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* text-align: center; */
   align-items: center;
   padding: 5rem;
   box-sizing: border-box;
-
   height: 100vh;
-  width: 30vw;
-  /* background-color: lightblue; */
+  width: 600px;
 }
 
 section {
@@ -63,10 +54,8 @@ section {
 }
 
 .btn {
-  /* float: left; */
   display: flex;
   justify-content: end;
   width: 100%;
-  /* background-color:aq;ua ; */
 }
 </style>

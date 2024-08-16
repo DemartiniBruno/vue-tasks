@@ -1,19 +1,33 @@
 <script lang="ts">
+
 export default {
   name: 'input_default',
   data(){
     return{
-      placeholder: 'teste'
+      place:''
     }
   },
-  props:{
-    placeholder: String
-  }
+
+  props:[
+    'place',
+    'modelValue'
+  ],
+
+  emits: [
+    'update:modelValue'
+  ]
 }
 </script>
 
 <template>
-  <input class="inputDefault" type="text" :placeholder>
+  <!-- <input class="inputDefault" type="text" :placeholder="place"> -->
+  <input 
+    class="inputDefault" 
+    type="text"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target)" 
+  />
+
 </template>
 
 <style scoped>
